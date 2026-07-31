@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MCR3U — Ontario Grade 11 Functions. Interactive lessons, live graphs, and visualizations for every unit.">
+  <title>MCR3U · Grade 11 Functions — Interactive Course</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">☰</button>
+<div class="overlay" id="overlay"></div>
+
+<!-- ==================== SIDEBAR ==================== -->
+<nav class="sidebar" id="sidebar" aria-label="Course navigation">
+  <div class="brand">MCR3U</div>
+  <div class="brand-sub">Grade 11 Functions</div>
+  <div class="nav" id="nav">
+    <a href="#unit1"><span class="num">01</span> Introduction to Functions</a>
+    <a href="#unit2"><span class="num">02</span> Transformations</a>
+    <a href="#unit3"><span class="num">03</span> Quadratic Functions</a>
+    <a href="#unit4"><span class="num">04</span> Exponential Functions</a>
+    <a href="#unit5"><span class="num">05</span> Trigonometry</a>
+    <a href="#unit6"><span class="num">06</span> Trigonometric Functions</a>
+    <a href="#unit7"><span class="num">07</span> Sequences, Series &amp; Finance</a>
+  </div>
+</nav>
+
+<main class="main">
+
+  <!-- ==================== HERO ==================== -->
+  <header class="hero" id="top">
+    <span class="tag">Ontario Curriculum · MCR3U</span>
+    <h1>Grade 11 <span>Functions</span>,<br>visualized.</h1>
+    <p>Every key concept of the course — with live, interactive graphs you can manipulate.
+       Drag the sliders, watch the math move. No sign-up, no downloads, works offline.</p>
+  </header>
+
+  <!-- ==================== UNIT 1 ==================== -->
+  <section class="unit" id="unit1">
+    <div class="unit-header">
+      <span class="unit-num">UNIT 01</span>
+      <h2>Introduction to Functions</h2>
+    </div>
+
+    <h3>What is a function?</h3>
+    <p>A <strong>function</strong> is a relation where each input (x-value) maps to <em>exactly one</em> output (y-value).
+       Graphically, a relation is a function if it passes the <strong>vertical line test</strong>: no vertical line
+       crosses the graph more than once.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-title">Function Notation</div>
+        <p><span class="formula">f(x) = 2x + 3</span> means "the output of f when the input is x".
+           <span class="formula">f(5) = 13</span> is a single value, not multiplication.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Domain &amp; Range</div>
+        <p><strong>Domain:</strong> all allowed x-values. <strong>Range:</strong> all resulting y-values.
+           Interval notation: <span class="formula">{x ∈ ℝ}</span>, <span class="formula">[−2, 5)</span></p>
+      </div>
+      <div class="card">
+        <div class="card-title">Inverse Functions</div>
+        <p>The inverse <span class="formula">f<sup>−1</sup>(x)</span> swaps x and y. Its graph is the
+           reflection of f(x) in the line <span class="formula">y = x</span>.</p>
+      </div>
+    </div>
+
+    <h3>The parent functions</h3>
+    <p>Every function family grows from a simple "parent". Know their shapes, domains, and ranges:</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Name</th><th>Equation</th><th>Domain</th><th>Range</th></tr></thead>
+        <tbody>
+          <tr><td>Linear</td><td>f(x) = x</td><td>{x ∈ ℝ}</td><td>{y ∈ ℝ}</td></tr>
+          <tr><td>Quadratic</td><td>f(x) = x²</td><td>{x ∈ ℝ}</td><td>{y ∈ ℝ, y ≥ 0}</td></tr>
+          <tr><td>Cubic</td><td>f(x) = x³</td><td>{x ∈ ℝ}</td><td>{y ∈ ℝ}</td></tr>
+          <tr><td>Square root</td><td>f(x) = √x</td><td>{x ∈ ℝ, x ≥ 0}</td><td>{y ∈ ℝ, y ≥ 0}</td></tr>
+          <tr><td>Reciprocal</td><td>f(x) = 1/x</td><td>{x ∈ ℝ, x ≠ 0}</td><td>{y ∈ ℝ, y ≠ 0}</td></tr>
+          <tr><td>Absolute value</td><td>f(x) = |x|</td><td>{x ∈ ℝ}</td><td>{y ∈ ℝ, y ≥ 0}</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="example">
+      <div class="box-label">Worked Example</div>
+      <p>If <span class="formula">f(x) = x² − 3x + 1</span>, find f(−2):</p>
+      <p>f(−2) = (−2)² − 3(−2) + 1 = 4 + 6 + 1 = <strong>11</strong></p>
+    </div>
+
+    <div class="mistake">
+      <div class="box-label">Common Mistakes</div>
+      <ul>
+        <li>Treating <span class="formula">f(x + h)</span> as <span class="formula">f(x) + h</span> — you must substitute (x + h) everywhere x appears.</li>
+        <li>Forgetting restrictions: the domain of <span class="formula">f(x) = √(x − 3)</span> is x ≥ 3, and <span class="formula">f(x) = 1/(x − 3)</span> excludes x = 3.</li>
+        <li>Thinking f<sup>−1</sup>(x) means 1/f(x) — the inverse is <em>not</em> the reciprocal.</li>
+      </ul>
+    </div>
+
+    <!-- Widget: parent function explorer -->
+    <div class="widget" id="widget-u1">
+      <span class="widget-label">Interactive · Parent Function Explorer</span>
+      <div class="widget-body">
+        <div class="widget-canvas-wrap">
+          <canvas class="graph" id="u1-canvas" width="640" height="480" aria-label="Graph of the selected parent function"></canvas>
+          <div class="legend"><span class="l-main">f(x)</span><span class="l-alt">inverse f⁻¹(x)</span></div>
+        </div>
+        <div class="controls">
+          <div class="control">
+            <label for="u1-fn">Parent function</label>
+            <select id="u1-fn">
+              <option value="linear">f(x) = x</option>
+              <option value="quadratic" selected>f(x) = x²</option>
+              <option value="cubic">f(x) = x³</option>
+              <option value="sqrt">f(x) = √x</option>
+              <option value="reciprocal">f(x) = 1/x</option>
+              <option value="abs">f(x) = |x|</option>
+            </select>
+          </div>
+          <div class="control">
+            <label for="u1-x">Try an input · x = <output id="u1-x-out">2</output></label>
+            <input type="range" id="u1-x" min="-5" max="5" step="0.1" value="2">
+          </div>
+          <div class="readout" id="u1-readout"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== UNIT 2 ==================== -->
+  <section class="unit" id="unit2">
+    <div class="unit-header">
+      <span class="unit-num">UNIT 02</span>
+      <h2>Transformations of Functions</h2>
+    </div>
+
+    <h3>The master equation</h3>
+    <span class="formula formula-block">y = <em>a</em> · f( <b>k</b>(x − d) ) + <em>c</em></span>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-title">a — Vertical stretch/reflection</div>
+        <p>|a| &gt; 1 stretches vertically, 0 &lt; |a| &lt; 1 compresses. a &lt; 0 reflects in the x-axis. (x, y) → (x, ay)</p>
+      </div>
+      <div class="card">
+        <div class="card-title">k — Horizontal stretch/reflection</div>
+        <p>|k| &gt; 1 compresses horizontally by 1/|k|. k &lt; 0 reflects in the y-axis. (x, y) → (x/k, y)</p>
+      </div>
+      <div class="card">
+        <div class="card-title">d — Horizontal translation</div>
+        <p>Shift <em>right</em> by d. Note: it's (x − d), so y = f(x − 3) moves 3 units right. (x, y) → (x + d, y)</p>
+      </div>
+      <div class="card">
+        <div class="card-title">c — Vertical translation</div>
+        <p>Shift up by c. (x, y) → (x, y + c)</p>
+      </div>
+    </div>
+
+    <h3>Mapping rule</h3>
+    <p>Every point on the parent graph transforms by:</p>
+    <span class="formula formula-block">(x, y) → ( <b>x/k + d</b> , <em>ay + c</em> )</span>
+    <p>Apply <strong>stretches and reflections before translations</strong> (multiply before you add).</p>
+
+    <div class="example">
+      <div class="box-label">Worked Example</div>
+      <p>Describe the transformations of <span class="formula">y = −2f(3x + 12) − 5</span>.</p>
+      <p>First factor inside: <span class="formula">y = −2f( 3(x + 4) ) − 5</span></p>
+      <ul>
+        <li>a = −2 → vertical stretch by 2, reflection in x-axis</li>
+        <li>k = 3 → horizontal compression by 1/3</li>
+        <li>d = −4 → shift 4 units <em>left</em></li>
+        <li>c = −5 → shift 5 units down</li>
+      </ul>
+    </div>
+
+    <div class="mistake">
+      <div class="box-label">Common Mistakes</div>
+      <ul>
+        <li>Reading d from an unfactored bracket: in <span class="formula">f(2x − 6)</span>, d is <strong>3</strong>, not 6. Factor first: f(2(x − 3)).</li>
+        <li>Thinking k &gt; 1 stretches horizontally — it actually <em>compresses</em>.</li>
+        <li>Applying translations before stretches, which gives wrong coordinates.</li>
+      </ul>
+    </div>
+
+    <!-- Widget: transformation explorer -->
+    <div class="widget" id="widget-u2">
+      <span class="widget-label">Interactive · Transformation Explorer — y = a·f(k(x−d)) + c</span>
+      <div class="widget-body">
+        <div class="widget-canvas-wrap">
+          <canvas class="graph" id="u2-canvas" width="640" height="480" aria-label="Graph of transformed function"></canvas>
+          <div class="legend"><span class="l-base">parent f(x)</span><span class="l-main">transformed y</span></div>
+        </div>
+        <div class="controls">
+          <div class="control">
+            <label for="u2-fn">Parent f(x)</label>
+            <select id="u2-fn">
+              <option value="quadratic" selected>x²</option>
+              <option value="abs">|x|</option>
+              <option value="sqrt">√x</option>
+              <option value="reciprocal">1/x</option>
+              <option value="cubic">x³</option>
+            </select>
+          </div>
+          <div class="control">
+            <label for="u2-a">a = <output id="u2-a-out">1</output></label>
+            <input type="range" id="u2-a" min="-3" max="3" step="0.1" value="1">
+          </div>
+          <div class="control">
+            <label for="u2-k">k = <output id="u2-k-out">1</output></label>
+            <input type="range" id="u2-k" min="-3" max="3" step="0.1" value="1">
+          </div>
+          <div class="control">
+            <label for="u2-d">d = <output id="u2-d-out">0</output></label>
+            <input type="range" id="u2-d" min="-5" max="5" step="0.1" value="0">
+          </div>
+          <div class="control">
+            <label for="u2-c">c = <output id="u2-c-out">0</output></label>
+            <input type="range" id="u2-c" min="-5" max="5" step="0.1" value="0">
+          </div>
+          <div class="readout" id="u2-readout"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== UNIT 3 ==================== -->
+  <section class="unit" id="unit3">
+    <div class="unit-header">
+      <span class="unit-num">UNIT 03</span>
+      <h2>Quadratic Functions</h2>
+    </div>
+
+    <h3>The three forms</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Form</th><th>Equation</th><th>Tells you</th></tr></thead>
+        <tbody>
+          <tr><td>Standard</td><td>y = ax² + bx + c</td><td>y-intercept is c</td></tr>
+          <tr><td>Factored</td><td>y = a(x − r)(x − s)</td><td>x-intercepts (zeros) are r and s</td></tr>
+          <tr><td>Vertex</td><td>y = a(x − h)² + k</td><td>vertex is (h, k); axis of symmetry x = h</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-title">The Quadratic Formula</div>
+        <span class="formula">x = (−b ± √(b² − 4ac)) / 2a</span>
+        <p>Solves any ax² + bx + c = 0.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Discriminant</div>
+        <span class="formula">D = b² − 4ac</span>
+        <p>D &gt; 0: two roots · D = 0: one root · D &lt; 0: no real roots</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Axis of Symmetry</div>
+        <span class="formula">x = −b / 2a</span>
+        <p>In factored form: x = (r + s)/2</p>
+      </div>
+    </div>
+
+    <h3>Completing the square</h3>
+    <p>Converts standard → vertex form: take half of b, square it, add and subtract it.</p>
+    <div class="example">
+      <div class="box-label">Worked Example</div>
+      <p>Convert <span class="formula">y = 2x² + 8x + 5</span> to vertex form.</p>
+      <p>y = 2(x² + 4x) + 5 = 2(x² + 4x + 4 − 4) + 5 = 2(x + 2)² − 8 + 5</p>
+      <p>Vertex form: <span class="formula">y = 2(x + 2)² − 3</span> → vertex <strong>(−2, −3)</strong></p>
+    </div>
+
+    <div class="mistake">
+      <div class="box-label">Common Mistakes</div>
+      <ul>
+        <li>Forgetting to factor a out first when a ≠ 1, and forgetting to multiply the subtracted term by a.</li>
+        <li>Sign errors in vertex form: <span class="formula">y = (x + 2)² − 3</span> has vertex (−2, −3), not (2, −3).</li>
+        <li>Max/min word problems: the optimal value is the <em>vertex</em> — find h, then evaluate k.</li>
+      </ul>
+    </div>
+
+    <!-- Widget: vertex form explorer -->
+    <div class="widget" id="widget-u3">
+      <span class="widget-label">Interactive · Vertex Form — y = a(x − h)² + k</span>
+      <div class="widget-body">
+        <div class="widget-canvas-wrap">
+          <canvas class="graph" id="u3-canvas" width="640" height="480" aria-label="Parabola with adjustable vertex"></canvas>
+        </div>
+        <div class="controls">
+          <div class="control">
+            <label for="u3-a">a = <output id="u3-a-out">1</output></label>
+            <input type="range" id="u3-a" min="-2.5" max="2.5" step="0.1" value="1">
+          </div>
+          <div class="control">
+            <label for="u3-h">h = <output id="u3-h-out">0</output></label>
+            <input type="range" id="u3-h" min="-5" max="5" step="0.1" value="0">
+          </div>
+          <div class="control">
+            <label for="u3-k">k = <output id="u3-k-out">0</output></label>
+            <input type="range" id="u3-k" min="-5" max="5" step="0.1" value="0">
+          </div>
+          <div class="readout" id="u3-readout"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Widget: quadratic solver -->
+    <div class="widget" id="widget-u3-solver">
+      <span class="widget-label">Interactive · Quadratic Formula Solver — ax² + bx + c = 0</span>
+      <div class="input-row">
+        <div class="field"><label for="u3-qa">a</label><input type="number" id="u3-qa" value="1" step="any"></div>
+        <div class="field"><label for="u3-qb">b</label><input type="number" id="u3-qb" value="-3" step="any"></div>
+        <div class="field"><label for="u3-qc">c</label><input type="number" id="u3-qc" value="-4" step="any"></div>
+      </div>
+      <button class="btn" id="u3-solve">Solve</button>
+      <div class="readout" id="u3-solution" style="margin-top:14px" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- ==================== UNIT 4 ==================== -->
+  <section class="unit" id="unit4">
+    <div class="unit-header">
+      <span class="unit-num">UNIT 04</span>
+      <h2>Exponential Functions</h2>
+    </div>
+
+    <h3>Exponent laws</h3>
+    <div class="card-grid">
+      <div class="card"><div class="card-title">Product</div><span class="formula">aᵐ · aⁿ = aᵐ⁺ⁿ</span></div>
+      <div class="card"><div class="card-title">Quotient</div><span class="formula">aᵐ / aⁿ = aᵐ⁻ⁿ</span></div>
+      <div class="card"><div class="card-title">Power of a power</div><span class="formula">(aᵐ)ⁿ = aᵐⁿ</span></div>
+      <div class="card"><div class="card-title">Negative exponent</div><span class="formula">a⁻ⁿ = 1/aⁿ</span></div>
+      <div class="card"><div class="card-title">Rational exponent</div><span class="formula">a^(m/n) = ⁿ√(aᵐ)</span></div>
+      <div class="card"><div class="card-title">Zero exponent</div><span class="formula">a⁰ = 1 (a ≠ 0)</span></div>
+    </div>
+
+    <h3>Exponential growth &amp; decay</h3>
+    <span class="formula formula-block">y = <em>a</em> · <b>b</b><sup>x</sup></span>
+    <ul>
+      <li><strong>a</strong> = initial value (the y-intercept)</li>
+      <li><strong>b</strong> = growth/decay factor. b &gt; 1 → <strong>growth</strong>; 0 &lt; b &lt; 1 → <strong>decay</strong></li>
+      <li>Growth rate r: b = 1 + r. A 5% increase per year → b = 1.05</li>
+      <li><strong>Half-life:</strong> y = a(½)<sup>t/h</sup> where h is the half-life period</li>
+      <li><strong>Doubling:</strong> y = a(2)<sup>t/d</sup> where d is the doubling period</li>
+    </ul>
+    <p>Unlike linear functions (constant <em>differences</em>), exponential functions have constant <em>ratios</em> between equally-spaced y-values. The x-axis (y = 0) is a horizontal asymptote.</p>
+
+    <div class="example">
+      <div class="box-label">Worked Example</div>
+      <p>A town of 24 000 people grows 3% per year. Population after 10 years:</p>
+      <p>P(t) = 24 000(1.03)<sup>t</sup> → P(10) = 24 000(1.03)<sup>10</sup> ≈ <strong>32 254</strong></p>
+    </div>
+
+    <div class="mistake">
+      <div class="box-label">Common Mistakes</div>
+      <ul>
+        <li>Confusing the factor with the rate: 3% growth means multiply by <strong>1.03</strong>, not 0.03 or 3.</li>
+        <li>Using the growth equation when the time unit doesn't match (convert years ↔ months first).</li>
+        <li>Thinking exponential decay reaches zero — it approaches the asymptote but never touches it.</li>
+      </ul>
+    </div>
+
+    <!-- Widget: exponential simulator -->
+    <div class="widget" id="widget-u4">
+      <span class="widget-label">Interactive · Growth &amp; Decay Simulator — y = P · bᵗ</span>
+      <div class="widget-body">
+        <div class="widget-canvas-wrap">
+          <canvas class="graph" id="u4-canvas" width="640" height="480" aria-label="Exponential growth and decay graph"></canvas>
+        </div>
+        <div class="controls">
+          <div class="control">
+            <label for="u4-p">Initial value P = <output id="u4-p-out">100</output></label>
+            <input type="range" id="u4-p" min="10" max="500" step="10" value="100">
+          </div>
+          <div class="control">
+            <label for="u4-b">Factor b = <output id="u4-b-out">1.15</output></label>
+            <input type="range" id="u4-b" min="0.5" max="1.6" step="0.01" value="1.15">
+          </div>
+          <div class="control">
+            <label for="u4-t">Time t = <output id="u4-t-out">10</output></label>
+            <input type="range" id="u4-t" min="0" max="30" step="0.5" value="10">
+          </div>
+          <div class="readout" id="u4-readout"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== UNIT 5 ==================== -->
+  <section class="unit" id="unit5">
+    <div class="unit-header">
+      <span class="unit-num">UNIT 05</span>
+      <h2>Trigonometry of Acute &amp; Obtuse Triangles</h2>
+    </div>
+
+    <h3>Primary trigonometric ratios (SOH · CAH · TOA)</h3>
+    <div class="card-grid">
+      <div class="card"><div class="card-title">Sine</div><span class="formula">sin θ = opposite / hypotenuse</span></div>
+      <div class="card"><div class="card-title">Cosine</div><span class="formula">cos θ = adjacent / hypotenuse</span></div>
+      <div class="card"><div class="card-title">Tangent</div><span class="formula">tan θ = opposite / adjacent</span></div>
+    </div>
+    <p>To find an angle from a ratio, use the inverse: <span class="formula">θ = sin<sup>−1</sup>(ratio)</span>.
+       For <strong>obtuse</strong> angles (90° &lt; θ &lt; 180°): sin θ is positive, cos θ and tan θ are negative,
+       and <span class="formula">sin θ = sin(180° − θ)</span>.</p>
+
+    <h3>Sine law &amp; cosine law</h3>
+    <span class="formula formula-block">a/sin A = b/sin B = c/sin C &nbsp;&nbsp;·&nbsp;&nbsp; c² = a² + b² − 2ab·cos C</span>
+    <ul>
+      <li><strong>Sine law</strong> — use when you have a matching side–angle <em>pair</em> (AAS, ASA, or SSA)</li>
+      <li><strong>Cosine law</strong> — use for <strong>SAS</strong> (find the side opposite the known angle) or <strong>SSS</strong> (find any angle)</li>
+    </ul>
+
+    <div class="example">
+      <div class="box-label">Worked Example</div>
+      <p>In △ABC, a = 7, b = 9, C = 52°. Find side c (SAS → cosine law):</p>
+      <p>c² = 7² + 9² − 2(7)(9)cos 52° = 49 + 81 − 126(0.6157) ≈ 52.4</p>
+      <p>c ≈ <strong>7.2</strong></p>
+    </div>
+
+    <div class="mistake">
+      <div class="box-label">Common Mistakes</div>
+      <ul>
+        <li>Calculator in the wrong mode — make sure it's in <strong>degrees</strong>, not radians.</li>
+        <li>Pairing the wrong side with the wrong angle in sine law: side a must be opposite angle A.</li>
+        <li>Using cosine law when a side–angle pair already exists (sine law is faster).</li>
+      </ul>
+    </div>
+
+    <!-- Widget: triangle solver -->
+    <div class="widget" id="widget-u5">
+      <span class="widget-label">Interactive · Triangle Solver (Sine &amp; Cosine Law)</span>
+      <div class="widget-body">
+        <div class="widget-canvas-wrap">
+          <canvas class="graph" id="u5-canvas" width="640" height="480" aria-label="Solved triangle diagram"></canvas>
+        </div>
+        <div class="controls">
+          <div class="control">
+            <label for="u5-mode">Given information</label>
+            <select id="u5-mode">
+              <option value="sas" selected>SAS — two sides + contained angle</option>
+              <option value="sss">SSS — three sides</option>
+              <option value="asa">ASA — two angles + contained side</option>
+            </select>
+          </div>
+          <div class="control">
+            <label for="u5-i1" id="u5-l1">side b</label>
+            <input type="number" id="u5-i1" value="7" step="any" min="0">
+          </div>
+          <div class="control">
+            <label for="u5-i2" id="u5-l2">side c</label>
+            <input type="number" id="u5-i2" value="9" step="any" min="0">
+          </div>
+          <div class="control">
+            <label for="u5-i3" id="u5-l3">angle A (°)</label>
+            <input type="number" id="u5-i3" value="52" step="any" min="0">
+          </div>
+          <button class="btn" id="u5-solve">Solve triangle</button>
+          <div class="readout" id="u5-readout" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== UNIT 6 ==================== -->
+  <section class="unit" id="unit6">
+    <div class="unit-header">
+      <span class="unit-num">UNIT 06</span>
+      <h2>Trigonometric Functions</h2>
+    </div>
+
+    <h3>Radians</h3>
+    <p>A <strong>radian</strong> measures an angle by arc length: 1 rad = angle where arc length = radius.</p>
+    <span class="formula formula-block">180° = π rad &nbsp;&nbsp;·&nbsp;&nbsp; θ(rad) = θ(°) × π/180</span>
+
+    <h3>Periodic &amp; sinusoidal functions</h3>
+    <p>A function is <strong>periodic</strong> if it repeats at regular intervals. Sinusoidal functions — y = sin x
+       and y = cos x — are smooth periodic waves with:</p>
+    <div class="card-grid">
+      <div class="card"><div class="card-title">Amplitude</div><span class="formula">|a| = (max − min)/2</span></div>
+      <div class="card"><div class="card-title">Period</div><span class="formula">360°/k or 2π/k</span></div>
+      <div class="card"><div class="card-title">Equation of axis</div><span class="formula">y = c = (max + min)/2</span></div>
+      <div class="card"><div class="card-title">Phase shift</div><span class="formula">d units right</span></div>
+    </div>
+
+    <span class="formula formula-block">y = <em>a</em> sin( <b>k</b>(x − d) ) + <em>c</em></span>
+
+    <h3>Special triangles &amp; the unit circle</h3>
+    <p>Exact values come from two triangles: <strong>30-60-90</strong> (sides 1 : √3 : 2) and
+       <strong>45-45-90</strong> (sides 1 : 1 : √2). On the unit circle, any angle θ gives the point
+       <span class="formula">(cos θ, sin θ)</span>.</p>
+
+    <div class="example">
+      <div class="box-label">Worked Example</div>
+      <p>For <span class="formula">y = 3 sin(2(x − 30°)) + 1</span>:</p>
+      <ul>
+        <li>Amplitude = 3 · Period = 360°/2 = 180°</li>
+        <li>Phase shift = 30° right · Axis: y = 1</li>
+        <li>Range: {y ∈ ℝ, −2 ≤ y ≤ 4}</li>
+      </ul>
+    </div>
+
+    <div class="mistake">
+      <div class="box-label">Common Mistakes</div>
+      <ul>
+        <li>Period formula: the period is 360°<em>divided by</em> k — bigger k means a <em>shorter</em> period.</li>
+        <li>Mixing degrees and radians in the same calculation.</li>
+        <li>Forgetting that the max value is c + |a|, not just a.</li>
+      </ul>
+    </div>
+
+    <!-- Widget: sinusoidal grapher -->
+    <div class="widget" id="widget-u6">
+      <span class="widget-label">Interactive · Sinusoidal Grapher — y = a·sin(k(x−d)) + c (degrees)</span>
+      <div class="widget-body">
+        <div class="widget-canvas-wrap">
+          <canvas class="graph" id="u6-canvas" width="640" height="480" aria-label="Sine wave with adjustable parameters"></canvas>
+          <div class="legend"><span class="l-base">y = sin x</span><span class="l-main">transformed</span></div>
+        </div>
+        <div class="controls">
+          <div class="control">
+            <label for="u6-a">a (amplitude) = <output id="u6-a-out">2</output></label>
+            <input type="range" id="u6-a" min="-3" max="3" step="0.1" value="2">
+          </div>
+          <div class="control">
+            <label for="u6-k">k = <output id="u6-k-out">1</output></label>
+            <input type="range" id="u6-k" min="0.25" max="4" step="0.25" value="1">
+          </div>
+          <div class="control">
+            <label for="u6-d">d (phase shift, °) = <output id="u6-d-out">0</output></label>
+            <input type="range" id="u6-d" min="-180" max="180" step="5" value="0">
+          </div>
+          <div class="control">
+            <label for="u6-c">c (vertical shift) = <output id="u6-c-out">0</output></label>
+            <input type="range" id="u6-c" min="-3" max="3" step="0.1" value="0">
+          </div>
+          <div class="readout" id="u6-readout"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Widget: unit circle -->
+    <div class="widget" id="widget-u6-circle">
+      <span class="widget-label">Interactive · Unit Circle Visualizer</span>
+      <div class="widget-body">
+        <div class="widget-canvas-wrap">
+          <canvas class="graph" id="u6-circle" width="560" height="560" aria-label="Unit circle showing sine and cosine of an angle"></canvas>
+        </div>
+        <div class="controls">
+          <div class="control">
+            <label for="u6-angle">θ = <output id="u6-angle-out">45°</output></label>
+            <input type="range" id="u6-angle" min="0" max="360" step="1" value="45">
+          </div>
+          <div class="readout" id="u6-circle-readout"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== UNIT 7 ==================== -->
+  <section class="unit" id="unit7">
+    <div class="unit-header">
+      <span class="unit-num">UNIT 07</span>
+      <h2>Sequences, Series &amp; Financial Applications</h2>
+    </div>
+
+    <h3>Arithmetic vs. geometric</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th></th><th>Arithmetic (add d)</th><th>Geometric (multiply r)</th></tr></thead>
+        <tbody>
+          <tr><td>General term</td><td>tₙ = a + (n − 1)d</td><td>tₙ = a · rⁿ⁻¹</td></tr>
+          <tr><td>Sum of n terms</td><td>Sₙ = n/2 · (2a + (n−1)d)</td><td>Sₙ = a(rⁿ − 1)/(r − 1)</td></tr>
+          <tr><td>Example</td><td>3, 7, 11, 15, … (d = 4)</td><td>3, 6, 12, 24, … (r = 2)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>A <strong>sequence</strong> is an ordered list of terms; a <strong>series</strong> is the <em>sum</em> of those terms.</p>
+
+    <h3>Financial mathematics</h3>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-title">Simple Interest</div>
+        <span class="formula">I = Prt</span>
+        <p>Interest on the principal only. Grows linearly (arithmetic).</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Compound Interest</div>
+        <span class="formula">A = P(1 + i)ⁿ</span>
+        <p>i = rate per period, n = number of periods. Grows exponentially (geometric).</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Annuities</div>
+        <p>Regular equal payments. Future value of an ordinary annuity:
+        <span class="formula">FV = R · ((1+i)ⁿ − 1)/i</span></p>
+      </div>
+    </div>
+
+    <div class="example">
+      <div class="box-label">Worked Example</div>
+      <p>$2 000 invested at 6%/a compounded annually for 8 years:</p>
+      <p>A = 2000(1.06)<sup>8</sup> ≈ <strong>$3 187.70</strong></p>
+      <p>Compounded monthly: i = 0.06/12 = 0.005, n = 96 → A = 2000(1.005)<sup>96</sup> ≈ <strong>$3 228.28</strong></p>
+    </div>
+
+    <div class="mistake">
+      <div class="box-label">Common Mistakes</div>
+      <ul>
+        <li>Using rⁿ instead of rⁿ⁻¹ in the geometric general term — the first term already uses r⁰.</li>
+        <li>Forgetting to convert the annual rate: 6%/a compounded monthly → i = 0.5% per month and n = months.</li>
+        <li>Confusing the sequence (list of balances) with the series (their sum).</li>
+      </ul>
+    </div>
+
+    <!-- Widget: sequence explorer -->
+    <div class="widget" id="widget-u7">
+      <span class="widget-label">Interactive · Sequence &amp; Series Explorer</span>
+      <div class="widget-body">
+        <div class="widget-canvas-wrap">
+          <canvas class="graph" id="u7-canvas" width="640" height="480" aria-label="Bar chart of sequence terms"></canvas>
+        </div>
+        <div class="controls">
+          <div class="control">
+            <label for="u7-type">Sequence type</label>
+            <select id="u7-type">
+              <option value="arith" selected>Arithmetic — tₙ = a + (n−1)d</option>
+              <option value="geom">Geometric — tₙ = a·rⁿ⁻¹</option>
+            </select>
+          </div>
+          <div class="control">
+            <label for="u7-a1">First term a = <output id="u7-a1-out">3</output></label>
+            <input type="range" id="u7-a1" min="1" max="20" step="1" value="3">
+          </div>
+          <div class="control">
+            <label for="u7-step"><span id="u7-step-name">Common difference d</span> = <output id="u7-step-out">2</output></label>
+            <input type="range" id="u7-step" min="0.5" max="5" step="0.1" value="2">
+          </div>
+          <div class="control">
+            <label for="u7-n">Term number n = <output id="u7-n-out">8</output></label>
+            <input type="range" id="u7-n" min="1" max="15" step="1" value="8">
+          </div>
+          <div class="readout" id="u7-readout"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Widget: compound interest -->
+    <div class="widget" id="widget-u7-finance">
+      <span class="widget-label">Interactive · Compound Interest Calculator — A = P(1 + i)ⁿ</span>
+      <div class="input-row">
+        <div class="field"><label for="u7-p">Principal ($)</label><input type="number" id="u7-p" value="2000" min="0" step="any"></div>
+        <div class="field"><label for="u7-rate">Annual rate (%)</label><input type="number" id="u7-rate" value="6" step="any"></div>
+        <div class="field"><label for="u7-years">Years</label><input type="number" id="u7-years" value="8" min="0" step="any"></div>
+        <div class="field">
+          <label for="u7-comp">Compounding</label>
+          <select id="u7-comp">
+            <option value="1" selected>Annually</option>
+            <option value="2">Semi-annually</option>
+            <option value="4">Quarterly</option>
+            <option value="12">Monthly</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn" id="u7-calc">Calculate</button>
+      <div class="readout" id="u7-fv" style="margin-top:14px" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>MCR3U · Grade 11 Functions (Ontario Curriculum) — built with plain HTML, CSS &amp; JavaScript. Works offline.</p>
+  </footer>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
